@@ -1,2 +1,3 @@
 # Parcial1DS
-# Pregunta 1
+## Daniel Rojas Groihs-1010117986
+PREGUNTA 1

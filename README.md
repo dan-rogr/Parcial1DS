@@ -15,9 +15,13 @@ PREGUNTA 2: 1. Vector X: Tiene una capacidad inicial de 5 y un crecimiento de 2.
    
 PREGUNTA 3: 
 struct Connection{
+
    int city;
+   
    Connection *next;
+   
    Connection(int city):city(city), next(nullptr){}
+   
 };
 struct City{
    int city;

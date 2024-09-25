@@ -14,6 +14,7 @@ PREGUNTA 2: 1. Vector X: Tiene una capacidad inicial de 5 y un crecimiento de 2.
 2. El vector X resultó más eficiente por dos razones: primero, porque tiene un menor desperdicio de memoria que los otros dos vectores, y segundo, porque su política de crecimiento de doblar la capacidad hizo que se ajustara mejor a los 10000 elementos.
    
 PREGUNTA 3: 
+
 struct Connection{
 
    int city;
@@ -23,62 +24,119 @@ struct Connection{
    Connection(int city):city(city), next(nullptr){}
    
 };
+
 struct City{
+
    int city;
+   
    Connection *connections;
+   
    City *next;
+   
    City(int city): city(city), connections(nullptr), next(nullptr){}
+   
 };
+
 class AdjacencyList{
+
    private:
+   
       City *head;
+      
    public:
+   
       AdjacencyList(): head(nullptr){}
+      
       ~AdjacencyList(){
+      
          City *currentCity = head;
+         
          while (currentCity != nullptr){
+         
             Connection *currentConnection = currentCity->connections;
+            
             while (currentConnection != nullptr){
+            
                Connection *borrar = currentConnection;
+               
                currentConnection = currentConnection->next;
+               
                delete borrar;
+               
             }
+            
             City *deleteCity = currentCity;
+            
             currentCity = currentCity->next;
+            
             delete deleteCity;
+            
          }
+         
       }
+      
       void addCity(int city){
+      
          if(findCity(city)==nullptr){
+         
             City *newCity = new City(city);
+            
             newCity->next = head;
+            
             head = newCity;
+            
          }
+         
       }
+      
       void removeCity(int city){
+      
       }
       void getConnectedCities(int city){
+      
          City *c= findCity(city);
+         
          if(c == nullptr){
+         
             cout<<"La ciudad no existe"<<endl;
+            
             return;
+            
          }
+         
          cout<<"Ciudades conectadas a "<<city<<": "<<endl;
+         
          Connection *current = c->connections;
+         
          while (current != nullptr){
+         
             cout<<current->city<<" ";
+            
             current = current->next;
+            
          }
+         
       }
       void addConnection(int city1, int city2){
+      
       }
+      
       void removeConnection(int city1, int city2){
+      
       }
+      
    private: 
+   
       City *findCity(int city){
+      
       }
+      
       void removeConnectionFromCity(City *city, int targetCity){
+      
       }
+      
       bool connectionExists(City *city, int targetCity){
+      
       }
+      
    }
